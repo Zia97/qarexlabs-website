@@ -24,7 +24,12 @@
           <span>Qarex Labs<span class="brand-dot">.</span></span>
         </a>
         <nav class="site-nav" aria-label="Main navigation">
-          <a href="#product">Product</a>
+          <details class="nav-products">
+            <summary>Products <span aria-hidden="true">⌄</span></summary>
+            <div class="nav-products-menu">
+              <a href="/ucatgenius">UCAT Genius</a>
+            </div>
+          </details>
           <a href="#about">About</a>
           <a class="nav-contact" href="mailto:admin@qarexlabs.co.uk">Get in touch <span aria-hidden="true">↗</span></a>
         </nav>
@@ -63,7 +68,7 @@
             <p>Purposeful software, built around real people and real needs.</p>
           </div>
           <article class="product-card">
-            <div class="product-icon" aria-hidden="true"><span>U</span><span class="icon-star">✳</span></div>
+            <div class="product-icon" aria-hidden="true"><img src="/ucatgenius-icon.png" alt=""></div>
             <div class="product-content">
               <div class="product-meta"><span>01 / EDUCATION</span><span class="product-status">Available now</span></div>
               <h3>UCAT Genius</h3>
@@ -108,13 +113,10 @@
           <address>71–75 Shelton Street, Covent Garden, London, WC2H 9JQ</address>
         </div>
         <div class="footer-end">
-          <nav class="footer-legal" aria-label="Legal">
-            <a href="/ucatgenius/privacy">UCAT Genius Privacy</a>
-            <a href="/ucatgenius/terms">UCAT Genius Terms</a>
-          </nav>
           <span>© 2026 Qarex Labs Ltd</span>
         </div>
       </div>
     </footer>
+    <script src="/products-menu.js"></script>
   </body>
 </html>
