@@ -2,23 +2,16 @@
 
 A static company website for Qarex Labs Ltd. Open `index.html` in a browser to preview it. No build tools or package installation are needed.
 
-## Publish with GitHub and Cloudflare Pages
+## Publish with Cloudflare Workers
 
-1. The empty GitHub repository `Zia97/qarexlabs-website` is already connected to this folder using SSH, the same method used by other projects on this computer.
-2. In a terminal opened in this folder, run:
+This repository is connected to Cloudflare Workers Builds. A push to the configured production branch triggers the build and deployment. The site is static, with no package installation or local build step; its HTML, CSS and other assets are kept in this repository.
 
-   ```powershell
-   git push -u origin main
-   ```
+After a deployment, check `/`, `/ucatgenius`, `/ucatgenius/privacy`, `/ucatgenius/terms`, and the legacy `/privacy` and `/terms` redirects. Cloudflare Workers serves individual `.html` files at extensionless paths by default and reads redirect rules from `_redirects`.
 
-3. In Cloudflare, open **Workers & Pages → Create application → Pages → Import an existing Git repository**. Connect GitHub and select `qarexlabs-website`.
-4. Set the production branch to `main`, framework preset to **None**, build command to **blank**, and build output directory to `.` (the repository root). Deploy.
-5. Open the `*.pages.dev` address Cloudflare gives you and check the site.
-6. In the Pages project, open **Custom domains → Set up a domain** and enter `qarexlabs.co.uk`. If the domain is already a Cloudflare zone in the same account, Cloudflare should create the needed DNS record. Wait until Cloudflare marks the domain active, then visit `https://qarexlabs.co.uk/`.
-7. If you want `www.qarexlabs.co.uk` to redirect to the main domain, follow Cloudflare's [www to apex redirect guide](https://developers.cloudflare.com/pages/how-to/www-redirect/). This uses a Bulk Redirect and a proxied DNS record. Do this after the main domain works.
+## Product pages and legal pages
 
-Cloudflare automatically deploys future pushes to `main`. To update the site, edit the files, then run `git add .`, `git commit -m "Describe the change"`, and `git push`.
+Give each product a top-level page and keep its legal pages under the same product path. For example, UCAT Genius uses `ucatgenius.html` for `/ucatgenius`, plus `ucatgenius/privacy.html` and `ucatgenius/terms.html` for `/ucatgenius/privacy` and `/ucatgenius/terms`. Add the product links to the homepage and its own footer. Keep any older shared legal URLs as redirects in `_redirects` so existing links continue to work.
 
-## Before publishing
+## Before a release
 
-Check the contact email and UCAT Genius description. The company number and registered office address match the [Companies House listing](https://find-and-update.company-information.service.gov.uk/company/17503258). These details are public on the website. As of 8 October 2026, `qarexlabs.co.uk` serves a page that sends visitors to `/lander`; connecting the custom domain will replace that site at the root address. Check existing Cloudflare DNS records before changing them, especially email MX, SPF, DKIM, and DMARC records; the website setup should not require removing those.
+Check that the contact email, company details and product descriptions are current. The company number and registered office address match the [Companies House listing](https://find-and-update.company-information.service.gov.uk/company/17503258). Review product policies when app features or service providers change, and update that product's legal links in its page and the homepage.
